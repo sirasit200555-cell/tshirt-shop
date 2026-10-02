@@ -1,0 +1,285 @@
+:root{--ink:#020202;--paper:#fff;--line:#d9d9d9;--soft:#f4f4f4;--mute:#6b6b6b}
+*{box-sizing:border-box}
+body{margin:0;font-family:"Sarabun","Noto Sans Thai",system-ui,sans-serif;background:var(--paper);color:var(--ink);line-height:1.6}
+a{color:var(--ink)}
+.logo{font-weight:800;letter-spacing:.12em;font-size:1.25rem;text-decoration:none}
+.top{display:flex;justify-content:space-between;align-items:center;padding:14px 24px;border-bottom:2px solid var(--ink);flex-wrap:wrap;gap:8px}
+.top nav{display:flex;gap:16px;align-items:center}
+.wrap{max-width:1600px;margin:0 auto;padding:24px 20px 100px}
+.narrow{max-width:640px}
+h2{margin:32px 0 12px}
+.muted{color:var(--mute)}.small{font-size:.85rem}
+label{display:block;margin:12px 0;font-weight:600}
+input:not([type=radio]):not([type=checkbox]),textarea{display:block;width:100%;padding:10px 12px;border:1.5px solid var(--ink);background:var(--paper);font:inherit;margin-top:4px;border-radius:0}
+input:focus,textarea:focus,button:focus-visible,a:focus-visible{outline:3px solid var(--ink);outline-offset:2px}
+
+.btn.small{padding:6px 12px;font-size:.9rem}
+.btn.ghost{background:var(--paper);color:var(--ink)}.btn.ghost:hover{background:var(--ink);color:var(--paper)}
+.alert{display: inline-block; background: #28a745; color: #fff; padding: 6px 12px; border-radius: 4px; margin-bottom: 15px;}
+.ok{border:1.5px solid var(--link);background:#28a745;color:#fff;padding:10px 14px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:24px}
+.card{border:1.5px solid var(--ink);padding:14px;display:flex;flex-direction:column;background:var(--paper)}
+.img{aspect-ratio:1/1;background:var(--soft);display:grid;place-items:center;color:var(--mute);overflow:hidden}
+.img img{width:100%;height:100%;object-fit:cover}
+.card h3{margin:12px 0 0;font-size:1.05rem}
+.price{font-weight:800;font-size:1.15rem;margin:4px 0 8px}
+.sizes{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:12px}
+.sizes label{margin:0}
+.sizes input{position:absolute;opacity:0}
+.sizes span{display:inline-block;min-width:42px;text-align:center;padding:5px 8px;border:1.5px solid var(--ink);cursor:pointer;font-weight:600}
+.sizes input:checked+span{background:#505050;color:#ffffff}
+.sizes input:focus-visible+span{outline:3px solid var(--ink);outline-offset:2px}
+.card .btn{margin-top:auto}
+.tabs{position:fixed;left:0;right:0;bottom:0;background:var(--paper);border-top:2px solid var(--ink);display:flex;justify-content:center;gap:8px;padding:10px;flex-wrap:wrap}
+.tabs a{padding:8px 18px;border:1.5px solid var(--ink);text-decoration:none;font-weight:700}
+.tabs a.on,.tabs a:hover{background:var(--ink);color:var(--paper)}
+.tbl{width:100%;border-collapse:collapse}
+.tbl td{padding:10px 8px;border-bottom:1px solid var(--line);vertical-align:middle}
+.tbl .r{text-align:right}.tbl .sum td{font-weight:800;border-top:2px solid var(--ink)}
+.thumb img{width:56px;height:56px;object-fit:cover;display:block}
+.thumb{width:70px}
+.inline{display:flex;gap:6px}.inline input{width:110px;margin:0}
+.opt{display:flex;gap:8px;align-items:center;border:1.5px solid var(--ink);padding:10px 14px}
+.qrbox{border:1.5px dashed var(--ink);padding:16px;text-align:center;margin:8px 0}
+.qrbox img{max-width:240px;width:100%}
+.addform{border:1.5px solid var(--ink);padding:16px;max-width:520px}
+@media(max-width:600px){.tbl td{font-size:.9rem}.inline{flex-direction:column}}
+/* ตกแต่งปุ่มเลือกจำนวนสินค้า */
+.qty-control {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 12px 0;
+}
+.qty-wrapper {
+  display: flex;
+  align-items: center;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  overflow: hidden;
+}
+.qty-btn {
+  background: #f1f1f1;
+  border: none;
+  padding: 4px 10px;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 14px;
+}
+.qty-btn:hover {
+  background: #ddd;
+}
+.qty-input {
+  width: 40px;
+  text-align: center;
+  border: none;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  padding: 4px 0;
+  outline: none;
+  font-size: 14px;
+}
+/* ซ่อนลูกศรขึ้นลงของ input number บนเบราว์เซอร์บางตัวเพื่อความสวยงาม */
+.qty-input::-webkit-outer-spin-button,
+.qty-input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+/* จัดแต่งกล่องเลือกไซส์ */
+.sizes {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    justify-content: center;
+    margin: 10px 0;
+}
+
+.sizes label {
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    padding: 6px 12px;
+    cursor: pointer;
+    font-size: 14px;
+    background: #fff;
+    transition: all 0.2s ease;
+    display: inline-block;
+}
+
+/* ซ่อนจุดวงกลมของ radio ดั้งเดิม */
+.sizes input[type="radio"] {
+    display: none;
+}
+
+/* เมื่อคลิกเลือกไซส์ไหน ให้เปลี่ยนสีกล่องนั้นเป็นสีดำ ตัวหนังสือสีขาว */
+.sizes input[type="radio"]:checked + span {
+    color: #fff;
+}
+
+.sizes label:has(input[type="radio"]:checked) {
+    background: #000;
+    border-color: #000;
+    color: #fff;
+}
+.error {
+    color: #721c24;          /* สีตัวหนังสือ (แดงเข้ม) */
+    background-color: #f8d4d6; /* สีพื้นหลังให้อ่านง่ายขึ้น */
+    border: 1px solid #f5c6cb; /* สีขอบกล่อง */
+    padding: 10px;           /* ระยะห่างขอบใน */
+    border-radius: 4px;      /* มุมกล่องมน */
+    margin-bottom: 15px;     /* ระยะห่างด้านล่าง */
+}
+
+/* ===== หน้าเข้าสู่ระบบ / สมัครสมาชิก (ใช้เฉพาะ index.php) ===== */
+.login-body{display:grid;place-items:center;min-height:100vh;padding:24px 0;background:var(--soft)}
+.login-box{width:min(440px,92vw);margin:0 auto;background:var(--paper);border:3px solid var(--ink);padding:40px 36px 32px;box-shadow:10px 10px 0 var(--ink)}
+.login-box .logo{display:block;text-align:center;margin:0 0 20px}
+.login-box .logo img{height:64px;max-width:100%;vertical-align:middle}
+.login-title{margin:0 0 24px;padding-bottom:20px;text-align:center;font-size:2.4rem;font-weight:800;letter-spacing:.02em;line-height:1.2;border-bottom:3px solid var(--ink)}
+.login-box label{margin:16px 0;font-size:1.05rem}
+.login-box input:not([type=radio]):not([type=checkbox]){padding:13px 14px;border-width:2px;font-size:1.05rem;font-weight:500;background:var(--paper);transition:box-shadow .15s}
+.login-box input:focus{outline:none;box-shadow:4px 4px 0 var(--ink)}
+.login-box .btn{display:block;width:100%;margin-top:24px;padding:16px;background:var(--ink);color:var(--paper);border:3px solid var(--ink);font:inherit;font-size:1.35rem;font-weight:800;letter-spacing:.05em;cursor:pointer;transition:background .15s,color .15s,transform .1s}
+.login-box .btn:hover{background:var(--paper);color:var(--ink)}
+.login-box .btn:active{transform:translate(2px,2px)}
+.login-box .btn:focus-visible{outline:3px solid var(--ink);outline-offset:3px}
+.login-box .alert{display:block;background:#fdecec;color:#8a1c1c;border:2px solid #8a1c1c;border-radius:0;padding:10px 14px;margin:0 0 8px;font-weight:600}
+.login-box .muted{margin:20px 0 0;text-align:center;font-size:1rem}
+.login-box .muted a{color:var(--ink);font-weight:700}
+.login-box .muted.small{margin-top:10px;font-size:.9rem}
+@media(max-width:480px){.login-box{padding:28px 20px 24px;box-shadow:6px 6px 0 var(--ink)}.login-title{font-size:2rem}}
+/* ตกแต่งส่วนเมนูด้านบนขวา */
+.nav-menu {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.nav-link {
+    text-decoration: none;
+    color: #333;
+    font-size: 15px;
+    font-weight: 500;
+    padding: 8px 16px;
+    border-radius: 20px;
+    background-color: #f8f9fa;
+    border: 1px solid #e9ecef;
+    transition: all 0.2s ease-in-out;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.nav-link:hover {
+    background-color: #007bff;
+    color: #fff;
+    border-color: #007bff;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 123, 255, 0.2);
+}
+
+.cart-btn {
+    background-color: #007bff !important;
+    border-color: #007bff !important;
+    color: #fff !important;
+}
+
+.cart-btn:hover {
+    background-color: #0056b3 !important;
+    border-color: #004085 !important;
+}
+
+.cart-badge {
+    background-color: #dc3545;
+    color: white;
+    font-size: 12px;
+    font-weight: bold;
+    padding: 2px 7px;
+    border-radius: 10px;
+    margin-left: 4px;
+}
+/* ===== กล่องจดหมาย (contact_admin.php / admin_messages.php) ===== */
+body:has(.mb-wrap){background:#f5f8fc}
+.mb-wrap{--mb-blue:#2f6fed;--mb-blue-dk:#1f56c4;--mb-blue-lt:#eaf1ff;--mb-line:#d8e1ee;--mb-text:#1f2a3c;
+  max-width:880px;margin:0 auto;padding:28px 20px 80px;color:var(--mb-text)}
+.mb-head{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;padding-bottom:16px;margin-bottom:20px;border-bottom:2px solid var(--mb-line)}
+.mb-title{margin:0;font-size:2rem;font-weight:800;display:flex;align-items:center;gap:12px;line-height:1.2}
+.mb-title .mb-ico{color:var(--mb-blue)}
+.mb-wrap a{color:var(--mb-blue-dk)}
+.mb-btn{display:inline-block;padding:10px 22px;background:var(--mb-blue);color:#fff !important;border:2px solid var(--mb-blue);border-radius:10px;font:inherit;font-size:1.05rem;font-weight:700;text-decoration:none;cursor:pointer;transition:background .15s,border-color .15s,transform .1s}
+.mb-btn:hover{background:var(--mb-blue-dk);border-color:var(--mb-blue-dk)}
+.mb-btn:active{transform:translateY(1px)}
+.mb-btn.ghost{background:#fff;color:var(--mb-blue-dk) !important;border-color:var(--mb-line)}
+.mb-btn.ghost:hover{background:var(--mb-blue-lt);border-color:var(--mb-blue)}
+.mb-nav{display:inline-flex;align-items:center;gap:6px;padding:6px 14px;border:2px solid var(--mb-blue,#2f6fed);border-radius:20px;color:#1f56c4;font-weight:700;text-decoration:none;background:#eaf1ff}
+.mb-nav:hover{background:#2f6fed;color:#fff}
+.mb-badge{display:inline-block;min-width:22px;padding:0 7px;border-radius:11px;background:#e5484d;color:#fff;font-size:12px;font-weight:700;line-height:1.7;text-align:center}
+.mb-badge[hidden]{display:none}
+.mb-list{list-style:none;margin:0;padding:0;background:#fff;border:1px solid var(--mb-line);border-radius:14px;overflow:hidden;box-shadow:0 2px 10px rgba(31,42,60,.06)}
+.mb-row{display:flex;gap:14px;align-items:center;padding:16px 18px;border-bottom:1px solid #edf1f7;background:#fff;color:var(--mb-text) !important;text-decoration:none}
+.mb-list li:last-child .mb-row{border-bottom:0}
+.mb-row:hover{background:#f3f7fd}
+.mb-row.unread{background:var(--mb-blue-lt);font-weight:800;box-shadow:inset 5px 0 0 var(--mb-blue)}
+.mb-row.unread:hover{background:#dfeaff}
+.mb-row .mb-ico{color:#9aa8bd}
+.mb-row.unread .mb-ico{color:var(--mb-blue)}
+.mb-ico{flex:none}
+.mb-row-main{flex:1;min-width:0}
+.mb-subject,.mb-preview{display:block;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.mb-subject{font-size:1.1rem}
+.mb-preview{color:#6b7a90;font-weight:400}
+.mb-meta{flex:none;text-align:right;font-size:.85rem;color:#6b7a90;font-weight:400;line-height:1.9}
+.mb-chip{display:inline-block;padding:1px 12px;border-radius:12px;font-size:.8rem;font-weight:700;background:#fff3d6;color:#8a5a00;border:1px solid #f3dc9e}
+.mb-chip.answered{background:#dff5e8;color:#1b6b3d;border-color:#b5e3c6}
+.mb-chip.closed{background:#eceff4;color:#6b7a90;border-color:#d8dfe9}
+.mb-filter{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:16px}
+.mb-filter a{padding:6px 18px;border:1px solid var(--mb-line);border-radius:20px;background:#fff;text-decoration:none;font-weight:700;color:var(--mb-text)}
+.mb-filter a:hover{background:var(--mb-blue-lt);border-color:var(--mb-blue)}
+.mb-filter a.on{background:var(--mb-blue);border-color:var(--mb-blue);color:#fff}
+.mb-empty{padding:56px 16px;text-align:center;color:#6b7a90;background:#fff;border:2px dashed var(--mb-line);border-radius:14px;line-height:1.9}
+.mb-subject-line{margin:8px 0 8px;font-size:1.7rem;font-weight:800;line-height:1.3;word-break:break-word}
+.mb-sub{display:flex;gap:12px;align-items:center;flex-wrap:wrap;color:#6b7a90;margin-bottom:22px}
+.mb-letter{background:#fff;border:1px solid var(--mb-line);border-radius:14px;margin-bottom:18px;overflow:hidden;box-shadow:0 2px 10px rgba(31,42,60,.06)}
+.mb-letter-head{display:flex;justify-content:space-between;gap:12px;padding:11px 18px;background:#eef2f8;border-bottom:1px solid var(--mb-line);font-weight:800}
+.mb-letter-head time{font-weight:400;font-size:.85rem;color:#6b7a90}
+.mb-from-admin{border-color:#b9cffa}
+.mb-from-admin .mb-letter-head{background:var(--mb-blue);border-bottom-color:var(--mb-blue);color:#fff}
+.mb-from-admin .mb-letter-head time{color:#d6e4ff}
+.mb-body{padding:18px;white-space:pre-wrap;word-break:break-word;font-size:1.05rem;line-height:1.75}
+.mb-form{margin-top:26px;padding:22px 24px;background:#fff;border:1px solid var(--mb-line);border-top:4px solid var(--mb-blue);border-radius:14px;box-shadow:0 4px 16px rgba(31,42,60,.08)}
+.mb-form label{margin-top:0}
+.mb-form input:not([type=radio]):not([type=checkbox]),.mb-form textarea{border:1.5px solid var(--mb-line);border-radius:10px;background:#fbfcfe}
+.mb-form input:focus,.mb-form textarea:focus{outline:none;border-color:var(--mb-blue);box-shadow:0 0 0 3px rgba(47,111,237,.18)}
+.mb-form textarea{min-height:150px;padding:12px;resize:vertical;font-size:1.05rem}
+.mb-close{margin-top:22px}
+.mb-ok,.mb-error{padding:10px 16px;margin:0 0 16px;font-weight:600;border-radius:10px;border:1px solid}
+.mb-ok{background:#dff5e8;color:#1b6b3d;border-color:#b5e3c6}
+.mb-error{background:#fdecec;color:#a12a2a;border-color:#f3c2c2}
+@media(max-width:600px){.mb-row{flex-wrap:wrap}.mb-meta{width:100%;text-align:left}.mb-form{padding:16px}.mb-nav span:not(.mb-badge){display:none}}
+
+/* ===== ปุ่มเมนูด้านบนขวา (ทุกหน้า) ===== */
+.top nav{gap:10px;flex-wrap:wrap}
+.nav-btn,.mb-nav{display:inline-flex;align-items:center;gap:7px;padding:8px 16px;border:1.5px solid #070707;border-radius:20px;background:#fff;color:#1f2a3c;font:inherit;font-size:.95rem;font-weight:700;line-height:1.3;text-decoration:none;cursor:pointer;transition:background .15s,border-color .15s,color .15s,transform .1s}
+.nav-btn:hover{background:#080808;border-color:#000000;color:#ffffff}
+.nav-btn:active,.mb-nav:active{transform:translateY(1px)}
+.nav-btn .nav-ico{flex:none}
+.nav-btn.primary{background:#fcfbfb;border-color:#050505;color:#020202}
+.nav-btn.primary:hover{background:#080808;border-color:#080808;color:#ffffff}
+.nav-btn.blue{background:#ffffff;border-color:#000000;color:#070707}
+.nav-btn.blue:hover{background:#000000;border-color:#000000;color:#fffdfd}
+.nav-btn.green{background:#ffffff;border-color:#050505;color:#020202}
+.nav-btn.green:hover{background:#000000;border-color:#000000;color:#ffffff}
+.nav-btn.icon{padding:8px 11px}
+.nav-btn.logout:hover{background:#fdecec;border-color:#e5484d;color:#c0262b}
+.mb-nav{border-color:#070707;background:#ffffff;color:#070707}
+.mb-nav:hover{background:#030303;border-color:#07090c;color:#fff}
+.nav-user{display:inline-flex;align-items:center;gap:6px;padding:0 6px;color:#6b7a90;font-weight:600}
+@media(max-width:760px){.nav-btn .lbl,.mb-nav .lbl,.nav-user .lbl{display:none}.nav-btn.primary .lbl,.nav-btn.green .lbl{display:none}}
+
+/* ===== สถานะคำสั่งซื้อ (หน้าแอดมิน) ===== */
+.st{display:inline-block;padding:2px 14px;border-radius:12px;font-size:.85rem;font-weight:700;white-space:nowrap;border:1px solid}
+.st.wait{background:#e3f1ff;color:#1565c0;border-color:#a9d2fb}
+.st.ship{background:#fff3d6;color:#8a5a00;border-color:#f3dc9e}
+.st.done{background:#dff5e8;color:#1b6b3d;border-color:#b5e3c6}
+.st-cancel{color:#d12a2f;font-weight:700;white-space:nowrap}
+.orders-tbl th,.orders-tbl td{padding:14px 18px}
+.orders-tbl th{padding-top:8px;padding-bottom:8px}
