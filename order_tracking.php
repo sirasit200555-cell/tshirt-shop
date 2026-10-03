@@ -54,7 +54,6 @@ if ($id > 0) {
 <body>
     <header class="top">
         <a class="logo" href="shop.php"><img src="assets/logo.png" alt="SIRASIT SHOP" style="height: 50px; vertical-align: middle;"></a>
-        <nav><a href="shop.php">กลับไปเลือกสินค้า</a></nav>
     </header>
     <main class="wrap narrow">
         <h2>ติดตามสถานะคำสั่งซื้อ</h2>
