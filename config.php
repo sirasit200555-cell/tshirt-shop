@@ -1,9 +1,10 @@
 <?php
 // ===== ตั้งค่าการเชื่อมต่อ (XAMPP ค่าเริ่มต้น) =====
-define('DB_HOST', 'localhost');
-define('DB_NAME', 'tshirt_shop');
-define('DB_USER', 'root');
-define('DB_PASS', '');
+define('DB_HOST', getenv('MYSQLHOST') ?: 'localhost');
+define('DB_PORT', getenv('MYSQLPORT') ?: '3306');
+define('DB_NAME', getenv('MYSQLDATABASE') ?: 'railway');
+define('DB_USER', getenv('MYSQLUSER') ?: 'root');
+define('DB_PASS', getenv('MYSQLPASSWORD') ?: '');
 // รหัสผ่านแอดมิน (เปลี่ยนได้ตรงนี้)
 define('ADMIN_PASSWORD', 'admin1234');
 define('PER_PAGE', 8);
@@ -13,7 +14,7 @@ session_start();
 function db() {
     static $pdo = null;
     if (!$pdo) {
-        $pdo = new PDO('mysql:host='.DB_HOST.';dbname='.DB_NAME.';charset=utf8mb4', DB_USER, DB_PASS,
+        $pdo = new PDO('mysql:host='.DB_HOST.';port='.DB_PORT.';dbname='.DB_NAME.';charset=utf8mb4', DB_USER, DB_PASS, [PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION, PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC]);
             [PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION, PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC]);
         ensure_mail_tables($pdo);
     }
