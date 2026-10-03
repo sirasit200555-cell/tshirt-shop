@@ -6,7 +6,7 @@ define('DB_NAME', getenv('MYSQLDATABASE') ?: 'railway');
 define('DB_USER', getenv('MYSQLUSER') ?: 'root');
 define('DB_PASS', getenv('MYSQLPASSWORD') ?: '');
 // รหัสผ่านแอดมิน (เปลี่ยนได้ตรงนี้)
-define('ADMIN_PASSWORD', 'admin1234');
+define('ADMIN_PASSWORD', 'LbilbmTbN2005');
 define('PER_PAGE', 8);
 
 session_start();

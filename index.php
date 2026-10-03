@@ -45,5 +45,4 @@ $reg = ($_POST['mode'] ?? '') === 'register' || isset($_GET['register']);
     <button class="btn"><?= $reg ? 'สมัครและเข้าสู่ระบบ' : 'เข้าสู่ระบบ' ?></button>
   </form>
   <p class="muted"><?= $reg ? '<a href="index.php">มีบัญชีแล้ว? เข้าสู่ระบบ</a>' : '<a href="?register=1">ยังไม่มีบัญชี? สมัครสมาชิก</a>' ?></p>
-  <p class="muted small"><a href="admin.php">สำหรับแอดมิน</a></p>
 </main></body></html>
