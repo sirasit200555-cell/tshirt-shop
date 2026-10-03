@@ -1,0 +1,2 @@
+[phases.setup]
+phpPkgs = ["php82", "php82-pdo_mysql", "php82-mysqli", "php82-mbstring"]
