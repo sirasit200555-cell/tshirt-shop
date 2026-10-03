@@ -154,7 +154,11 @@ $qrFile = file_exists(__DIR__.'/assets/qr.png.jpg') ? 'assets/qr.png.jpg' : null
         </div>
     </div>
 <?php elseif (empty($lines)): ?>
-    <h2>ตะกร้าว่าง</h2><a class="btn" href="shop.php">เลือกสินค้า</a>
+    <h2 style="text-align: center; margin-top: 40px;">ตะกร้าว่าง</h2>
+    <p style="text-align: center; color: #6b6b6b;">ยังไม่มีสินค้าในตะกร้า เลือกสินค้าที่ชอบได้เลย</p>
+    <div style="margin-top: 24px; text-align: center;">
+    <a class="btn btn-continue" href="shop.php">🛍 กลับไปเลือกสินค้า</a>
+    </div>
 <?php else: ?>
     <h2>สรุปรายการ</h2>
     <table class="tbl" style="width: 100%; border-collapse: separate; border-spacing: 0 8px;">
