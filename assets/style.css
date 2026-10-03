@@ -362,6 +362,7 @@ body:has(.mb-wrap){background:#f5f8fc}
   }
   header.top nav { flex-wrap: wrap !important; gap: 8px !important; }
 }
+    @media (max-width: 768px) {
   /* ย้ายเมนูไปฝั่งขวา และเรียงลำดับ: ค้นหา → ตะกร้า → ขีดสาม */
   header.top nav {
     display: flex !important;
@@ -462,3 +463,160 @@ body:has(.mb-wrap){background:#f5f8fc}
     border-color: #030303 !important;
     box-shadow: 0 2px 6px rgba(0,0,0,.25) !important;
   }
+     /* ===== หน้าประวัติคำสั่งซื้อ: ตารางเป็นการ์ด ===== */
+  main.orders-page {
+    max-width: 100% !important;
+    margin: 16px auto !important;
+    padding: 0 12px !important;
+  }
+  main.orders-page > h2 {
+    font-size: 1.15rem !important;
+    margin-bottom: 8px !important;
+  }
+
+  table.orders-card,
+  table.orders-card tbody,
+  table.orders-card tr,
+  table.orders-card td {
+    display: block !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+  }
+  table.orders-card { margin-top: 8px !important; border: 0 !important; }
+  table.orders-card thead { display: none !important; }
+
+  table.orders-card tr {
+    background: #fff;
+    border: 1px solid #d9d9d9;
+    border-radius: 14px;
+    padding: 10px 14px;
+    margin-bottom: 14px;
+    box-shadow: 0 2px 8px rgba(0,0,0,.06);
+  }
+  table.orders-card td {
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    gap: 12px;
+    padding: 6px 0 !important;
+    border: 0 !important;
+    text-align: right !important;
+    font-size: 0.92rem;
+    white-space: normal !important;
+  }
+  table.orders-card td::before {
+    flex-shrink: 0;
+    text-align: left;
+    color: #6b6b6b;
+    font-weight: 600;
+  }
+  table.orders-card td:nth-child(1)::before { content: "ออเดอร์"; }
+  table.orders-card td:nth-child(2)::before { content: "ชื่อผู้รับ"; }
+  table.orders-card td:nth-child(3)::before { content: "เบอร์โทร"; }
+  table.orders-card td:nth-child(4)::before { content: "วิธีชำระเงิน"; }
+  table.orders-card td:nth-child(5)::before { content: "ยอดรวม (บาท)"; }
+  table.orders-card td:nth-child(6)::before { content: "วันที่สั่งซื้อ"; }
+  table.orders-card td:nth-child(7)::before { content: "สถานะ"; }
+
+  table.orders-card td:nth-child(1) {
+    font-weight: 700;
+    font-size: 1rem;
+    padding-bottom: 10px !important;
+    margin-bottom: 4px;
+    border-bottom: 1px solid #eee !important;
+  }
+  table.orders-card td:nth-child(5) { font-weight: 700; color: #16a34a; }
+
+  table.orders-card td:last-child {
+    justify-content: center !important;
+    gap: 10px;
+    margin-top: 8px;
+    padding-top: 12px !important;
+    border-top: 1px solid #eee !important;
+  }
+  table.orders-card td:last-child::before { content: none; }
+  table.orders-card td:last-child > * {
+    flex: 1;
+    text-align: center;
+    padding: 10px 0 !important;
+    border-radius: 10px;
+  }
+
+  /* ===== หน้าติดตามสถานะ: รายการสินค้าเป็นการ์ด ===== */
+  table.track,
+  table.track tbody,
+  table.track tr,
+  table.track td {
+    display: block !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+  }
+  table.track thead,
+  table.track tr:has(th) { display: none !important; }
+
+    table.track tr {
+    background: #fff;
+    border: 1px solid #d9d9d9;
+    border-radius: 14px;
+    padding: 12px 14px;
+    margin-bottom: 12px;
+    box-shadow: 0 2px 8px rgba(0,0,0,.06);
+  }
+  table.track td {
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    padding: 6px 0 !important;
+    border: 0 !important;
+    text-align: right !important;
+    font-size: 0.92rem;
+  }
+  table.track td::before {
+    flex-shrink: 0;
+    color: #6b6b6b;
+    font-weight: 600;
+    text-align: left;
+  }
+  table.track td:nth-child(1) {
+    justify-content: flex-start !important;
+    gap: 12px;
+    text-align: left !important;
+    padding-bottom: 10px !important;
+    margin-bottom: 4px;
+    border-bottom: 1px solid #eee !important;
+  }
+  table.track td:nth-child(1)::before { content: none; }
+  table.track td:nth-child(2)::before { content: "จำนวน"; }
+  table.track td:nth-child(3)::before { content: "ราคาต่อหน่วย"; }
+  table.track td:nth-child(4)::before { content: "ราคารวม"; }
+  table.track td:nth-child(4) { font-weight: 700; color: #16a34a; }
+
+  /* แถวยอดรวมทั้งสิ้น */
+  table.track tr.sum { background: #f9fafb; }
+  table.track tr.sum td::before { content: none !important; }
+  table.track tr.sum td:first-child {
+    font-weight: 700;
+    border-bottom: 0 !important;
+    margin-bottom: 0;
+    padding-bottom: 6px !important;
+  }
+  table.track tr.sum td:last-child { font-weight: 700; }
+}
+/* ปุ่มเลือกซื้อสินค้าเพิ่มเติม */
+.btn-continue {
+  display: block;
+  width: 100%;
+  max-width: 320px;
+  margin: 0 auto;
+  padding: 12px 20px;
+  background: #111;
+  color: #fff !important;
+  border-radius: 999px;
+  text-align: center;
+  font-weight: 700;
+  text-decoration: none !important;
+  box-shadow: 0 3px 10px rgba(0,0,0,.2);
+  transition: background .15s, transform .1s;
+}
+.btn-continue:hover { background: #333; transform: translateY(-1px); }
+.btn-continue:active { transform: translateY(0); }

@@ -76,7 +76,7 @@ $orders = $stmt->fetchAll(PDO::FETCH_ASSOC);
                 <a class="btn" href="shop.php">ไปเลือกซื้อสินค้ากันเลย</a>
             </div>
         <?php else: ?>
-            <table class="tbl" style="margin-top: 20px; width: 100%; border-collapse: collapse;">
+            <table class="tbl orders-card" style="margin-top: 20px; width: 100%; border-collapse: collapse;">
                 <thead>
                     <tr>
                         <th>เลขออร์เดอร์</th>
@@ -92,6 +92,7 @@ $orders = $stmt->fetchAll(PDO::FETCH_ASSOC);
                 <tbody>
                     <?php foreach ($orders as $ord): ?>
                         <?php 
+                            $payTh = ['cod' => 'ชำระปลายทาง', 'transfer' => 'โอนเงิน', 'qr' => 'สแกน QR'];
                             $statusText = $ord['status'] ?? 'รอดำเนินการ (กำลังเตรียมจัดส่ง)';
                             $cancelReason = $ord['cancel_reason'] ?? '';
                         ?>
@@ -99,7 +100,7 @@ $orders = $stmt->fetchAll(PDO::FETCH_ASSOC);
                             <td>#<?= $ord['id'] ?></td>
                             <td><?= htmlspecialchars($ord['fullname']) ?></td>
                             <td><?= htmlspecialchars($ord['phone']) ?></td>
-                            <td><?= htmlspecialchars($ord['payment']) ?></td>
+                            <td><?= ($ord['payment'] === 'cod') ? 'ชำระปลายทาง' : htmlspecialchars($ord['payment']) ?></td>
                             <td class="r"><?= number_format($ord['total'], 2) ?></td>
                             <td><?= htmlspecialchars($ord['created_at']) ?></td>
                             <td>

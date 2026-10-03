@@ -143,7 +143,7 @@ if ($id > 0) {
             </table>
 
             <div style="margin-top: 20px; text-align: center;">
-                <a class="btn" href="shop.php">เลือกซื้อสินค้าเพิ่มเติม</a>
+                <a class="btn btn-continue" href="shop.php">🛍 เลือกซื้อสินค้าเพิ่มเติม</a>
             </div>
         <?php endif; ?>
     </main>
