@@ -136,8 +136,9 @@ if ($search !== '') {
         <span class="nav-user"><?= nav_icon('user') ?><span class="lbl">สวัสดี <?= e($_SESSION['user']['name']) ?></span></span>
         <a class="nav-btn" href="my_orders.php"><?= nav_icon('orders') ?><span class="lbl">ประวัติคำสั่งซื้อ</span></a>
         <?= mail_nav_link('user') ?>
+        <button type="button" class="nav-toggle" id="navToggle" aria-label="เมนู">☰</button>
         <a class="nav-btn primary" href="checkout.php" id="cart-btn"><?= nav_icon('cart') ?><span class="lbl">ตะกร้า</span> (<span id="cart-count"><?= $cartCount; ?></span>)</a>
-        <a class="nav-btn icon logout" href="logout.php" title="ออกจากระบบ" aria-label="ออกจากระบบ"><?= nav_icon('logout') ?></a>
+        <a class="nav-btn icon logout" href="logout.php" title="ออกจากระบบ" aria-label="ออกจากระบบ"><?= nav_icon('logout') ?><span class="lbl">ออกจากระบบ</span></a>
     </nav>
 </header>
 <main class="wrap">
@@ -274,6 +275,7 @@ $rightAds = ad_images(['U[0-9]*', 'sss[0-9]*']);
 </script>
 <?php endif; ?>
 
+
 </div>
 </main>
 <nav class="tabs" aria-label="เลือกหน้า">
@@ -294,6 +296,9 @@ $rightAds = ad_images(['U[0-9]*', 'sss[0-9]*']);
   #cart-btn.pop { animation: cart-pop .4s ease; }
 </style>
 <script>
+    document.getElementById('navToggle')?.addEventListener('click', function () {
+  this.closest('nav').classList.toggle('open');
+});
 document.querySelectorAll('.add-form').forEach(form => {
   form.addEventListener('submit', async (e) => {
     e.preventDefault();

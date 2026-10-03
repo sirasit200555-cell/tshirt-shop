@@ -283,3 +283,182 @@ body:has(.mb-wrap){background:#f5f8fc}
 .st-cancel{color:#d12a2f;font-weight:700;white-space:nowrap}
 .orders-tbl th,.orders-tbl td{padding:14px 18px}
 .orders-tbl th{padding-top:8px;padding-bottom:8px}
+@media (max-width: 768px) {
+  body.login-body .login-box {
+    width: 78% !important;
+    max-width: 270px !important;
+    padding: 16px 14px !important;
+    box-shadow: 4px 4px 0 #000 !important;
+  }
+  body.login-body .login-box .logo img { max-width: 150px !important; height: auto !important; }
+  body.login-body .login-title { font-size: 1.1rem !important; margin: 8px 0 !important; }
+  body.login-body .login-box label { font-size: 0.8rem !important; }
+  body.login-body .login-box input { padding: 6px 8px !important; font-size: 16px !important; }
+  body.login-body .login-box .btn { padding: 8px !important; font-size: 0.95rem !important; }
+}
+@media (max-width: 768px) {
+  * { box-sizing: border-box; }
+  img { max-width: 100%; height: auto; }
+
+  header.top {
+    flex-wrap: wrap !important;
+    gap: 8px !important;
+    padding-left: 12px !important;
+    padding-right: 12px !important;
+    height: auto !important;
+  }
+  header .logo img { max-height: 40px; width: auto; }
+
+  /* 3 คอลัมน์ -> เรียงเป็นแนวตั้ง */
+  main.wrap > div {
+    flex-direction: column !important;
+  }
+  /* ซ่อนโฆษณาซ้าย-ขวาบนมือถือ (กล่องที่กว้าง 320px) */
+  main.wrap > div > div[style*="width: 320px"],
+  main.wrap > div > div[style*="width:320px"] {
+    display: none !important;
+  }
+  main.wrap > div > div[style*="flex-grow"] {
+    width: 100% !important;
+  }
+}
+@media (max-width: 768px) {
+  main.wrap .grid {
+    display: grid !important;
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    gap: 10px !important;
+  }
+  main.wrap .grid .add-form {
+    padding: 8px !important;
+    min-width: 0 !important;
+  }
+  main.wrap .grid .p-name { font-size: 0.85rem !important; }
+  main.wrap .grid .price { font-size: 1rem !important; }
+  main.wrap .grid .add-form select { font-size: 14px !important; padding: 6px !important; }
+  main.wrap .grid .add-form .btn { font-size: 0.85rem !important; padding: 8px !important; }
+}
+.nav-toggle { display: none; }
+
+@media (max-width: 768px) {
+  .nav-toggle {
+    display: inline-flex !important;
+    align-items: center;
+    justify-content: center;
+    width: 42px; height: 42px;
+    border: 1px solid #111; border-radius: 999px;
+    background: #fff; font-size: 20px; cursor: pointer;
+  }
+  header.top nav .nav-user,
+  header.top nav a[href="my_orders.php"],
+  header.top nav a[href="contact_admin.php"],
+  header.top nav a[href="logout.php"] {
+    display: none !important;
+  }
+  header.top nav.open .nav-user,
+  header.top nav.open a[href="my_orders.php"],
+  header.top nav.open a[href="contact_admin.php"],
+  header.top nav.open a[href="logout.php"] {
+    display: inline-flex !important;
+  }
+  header.top nav { flex-wrap: wrap !important; gap: 8px !important; }
+}
+  /* ย้ายเมนูไปฝั่งขวา และเรียงลำดับ: ค้นหา → ตะกร้า → ขีดสาม */
+  header.top nav {
+    display: flex !important;
+    justify-content: flex-end !important;
+    align-items: center !important;
+    margin-left: auto !important;
+    width: 100% !important;
+  }
+  header.top nav > * { order: 4; }
+  header.top nav .nav-search { order: 1 !important; }
+  header.top nav #cart-btn   { order: 2 !important; }
+  header.top nav .nav-toggle { order: 3 !important; }
+    /* ย่อปุ่มเมนูให้เล็กลง */
+  header.top nav { gap: 6px !important; }
+
+  header.top nav .nav-toggle {
+    width: 32px !important;
+    height: 32px !important;
+    font-size: 16px !important;
+  }
+
+  header.top nav #cart-btn {
+    height: 32px !important;
+    padding: 0 10px !important;
+    font-size: 0.8rem !important;
+    line-height: 1 !important;
+  }
+
+  header.top nav .nav-search button,
+  header.top nav .nav-search .nav-btn {
+    width: 32px !important;
+    height: 32px !important;
+    padding: 0 !important;
+    font-size: 14px !important;
+  }
+    header.top nav .nav-search {
+    display: flex !important;
+    align-items: center !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    height: 32px !important;
+  }
+  header.top nav .nav-search > * {
+    margin: 0 !important;
+    vertical-align: middle !important;
+  }
+  header.top nav .nav-search button,
+  header.top nav .nav-search .nav-btn {
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    line-height: 1 !important;
+  }
+    /* เมนูที่เปิดออกมา: เรียงลงมาเป็นแนวตั้ง */
+  header.top nav.open .nav-user,
+  header.top nav.open a[href="my_orders.php"],
+  header.top nav.open a[href="contact_admin.php"],
+  header.top nav.open a[href="logout.php"] {
+    order: 5 !important;
+    flex: 0 0 100% !important;
+    width: 100% !important;
+    height: 40px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: flex-start !important;
+    gap: 10px !important;
+    padding: 0 14px !important;
+    border-radius: 12px !important;
+    box-sizing: border-box !important;
+  }
+
+  /* โชว์ข้อความข้างไอคอน (เดิมถูกซ่อนไว้บนมือถือ) */
+  header.top nav.open .lbl {
+    display: inline !important;
+  }
+    /* แถบเลือกหน้า: 4 ปุ่มเรียงในแถวเดียว */
+  nav.tabs {
+    display: flex !important;
+    flex-wrap: nowrap !important;
+    justify-content: center !important;
+    align-items: center !important;
+    gap: 8px !important;
+    padding: 10px 12px !important;
+  }
+  nav.tabs a {
+    flex: 1 1 0 !important;
+    min-width: 0 !important;
+    max-width: 72px !important;
+    padding: 8px 0 !important;
+    font-size: 0.85rem !important;
+    letter-spacing: 0 !important;
+    border-width: 1.5px !important;
+    white-space: nowrap !important;
+  }
+  nav.tabs a.on {
+    background: #030303 !important;
+    color: #fff !important;
+    border-color: #030303 !important;
+    box-shadow: 0 2px 6px rgba(0,0,0,.25) !important;
+  }
