@@ -239,7 +239,7 @@ $rightAds = ad_images(['U[0-9]*', 'sss[0-9]*']);
                         </select>
                     </div>
                     <div class="btn" style="background: transparent; padding: 0; box-shadow: none;">
-                <button type="submit" class="btn" style="width: 100%; padding: 10px 16px; background: #212529; color: #fff; border: none; border-radius: 8px; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 8px; font-weight: bold; font-size: 14px; transition: background 0.2s;">
+                <button type="submit" class="btn" style="width: 100%; padding: 10px 16px; background: #b39ddb; color: #fff; border: none; border-radius: 8px; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 8px; font-weight: bold; font-size: 14px; transition: background 0.2s;">
              <span>ใส่ตะกร้า</span>
              <span style="font-size: 16px;"></span>
             </button>
