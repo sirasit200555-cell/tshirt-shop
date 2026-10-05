@@ -40,8 +40,8 @@ if ($isAdmin && $_SERVER['REQUEST_METHOD'] === 'POST') {
             $msg = 'กรุณากรอกชื่อ ราคา และเลือกไซส์อย่างน้อย 1 ไซส์'; $msgType = 'error';
         } else {
             // บันทึกสินค้าหลักลงตาราง products
-            $stmt = db()->prepare("INSERT INTO products (name,price,image,sizes) VALUES (?,?,?,?)");
-            $stmt->execute([$name, $price, $img, $sizes]);
+            $stmt = db()->prepare("INSERT INTO products (name,price,image,sizes,description) VALUES (?,?,?,?,?)");
+            $stmt->execute([$name, $price, $img, $sizes, '']);
 
             // ดึง ID ของสินค้าเพิ่งเพิ่มล่าสุด
             $productId = db()->lastInsertId();
